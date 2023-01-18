@@ -62,7 +62,7 @@ RegisterNetEvent('jim-recycle:Dumpsters:Search', function()
                         loadAnimDict(dict)
                         TaskPlayAnim(PlayerPedId(), dict, anim, 1.0, 1.0, 3500, 1.5, 5, 0, 0, 0)
                         if Config.Minigame == "qb-lock" then
-                            local success = exports['qb-lock']:StartLockPickCircle(math.random(2,4), math.random(10,15), success)
+                            local success = exports['qb-lock']:StartLockPickCircle(math.random(1,3), math.random(40,60), success)
                             if success then
                                 TriggerEvent("QBCore:Notify", Loc[Config.Lan].success["get_trash"], "success")
                                 startSearching(GetEntityCoords(dumpster))
@@ -75,7 +75,7 @@ RegisterNetEvent('jim-recycle:Dumpsters:Search', function()
                         elseif Config.Minigame == "qb-skillbar" then
                             local Skillbar = exports['qb-skillbar']:GetSkillbarObject()
                             Skillbar.Start({
-                                duration = math.random(2500,5000),
+                                duration = math.random(15000,20000),
                                 pos = math.random(10, 30),
                                 width = math.random(10, 20),
                             }, function()

@@ -36,8 +36,8 @@ RegisterServerEvent("jim-recycle:TradeItems", function(data)
 	elseif data == 2 then
 		remAmount = 10
 		itemAmount = 2
-		min = Config.RecycleAmounts.tenMin
-		max = Config.RecycleAmounts.tenMax
+		min = 5
+		max = 5
 	elseif data == 3 then
 		remAmount = 100
 		itemAmount = 6
@@ -67,7 +67,7 @@ RegisterNetEvent("jim-recycle:Selling:Mat", function(item)
         local amount = Player.Functions.GetItemByName(item).amount
         local pay = (amount * Config.Prices[item])
         if Player.Functions.RemoveItem(item, amount) then TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items[item], 'remove', amount) end
-        Player.Functions.AddMoney('cash', pay)
+        Player.Functions.AddMoney('cash', pay, 'sold recycle materials')
         TriggerClientEvent("QBCore:Notify", src, Loc[Config.Lan].success["get_paid"]..pay, "success")
     end
 end)
